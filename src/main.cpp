@@ -5,6 +5,11 @@
 
 using namespace std;
 
+static TCHAR szWindowClass[] = _T("win32App");
+static TCHAR szTitle[] = _T("Rasterization");
+
+HINSTANCE hInst;
+
 LRESULT CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM);
 
 int WINAPI WinMain ( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int ncmdShow) 
