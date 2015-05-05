@@ -57,7 +57,7 @@ bool rasterizerApp::initMainWindow()
     return true;
 }
 
-LRESULT  MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
+LRESULT  rasterizerApp::MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     PAINTSTRUCT ps;
     HDC hdc;

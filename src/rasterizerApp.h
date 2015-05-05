@@ -8,7 +8,7 @@
 
 class rasterizerApp {
 public:
-    rasterizerApp(HINSTANCE hinstance) { hInst = hinstance; };
+    rasterizerApp(HINSTANCE hinstance) { hInst = hinstance; }
     ~rasterizerApp();
     
     HINSTANCE appInst()const;
