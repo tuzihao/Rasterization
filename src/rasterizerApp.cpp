@@ -8,7 +8,7 @@ bool rasterizerApp::initMainWindow()
     wcex.style                   = CS_HREDRAW | CS_VREDRAW;
     wcex.lpfnWndProc        = WndProc;
     wcex.cbClsExtra           = 0;
-    wcex.cbWndExtra         = 0;
+    wcex.cbWndExtra        = 0;
     wcex.hInstance             = hInstance;
     wcex.hIcon                    = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
     wcex.hCursor                = LoadCursor(NULL, IDC_ARROW);
