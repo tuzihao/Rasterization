@@ -8,8 +8,7 @@
 
 class rasterizerApp {
 public:
-    rasterizerApp(HINSTANCE hinstance) { hInst = hinstance; };
-    vritual ~rasterizerApp();
+    rasterizerApp(HINSTANCE hinstance) { hInst = hinstance; }
     
     
     bool initMainWindow();
