@@ -4,8 +4,8 @@ using namespace std;
 
 bool rasterizerApp::initMainWindow()
 {
-    wcex.cbSize                  = sizeof(WNDCLASSEX);
-    wcex.style                     = CS_HREDRAW | CS_VREDRAW;
+    wcex.cbSize                 = sizeof(WNDCLASSEX);
+    wcex.style                   = CS_HREDRAW | CS_VREDRAW;
     wcex.lpfnWndProc        = WndProc;
     wcex.cbClsExtra           = 0;
     wcex.cbWndExtra         = 0;
@@ -14,7 +14,7 @@ bool rasterizerApp::initMainWindow()
     wcex.hCursor                = LoadCursor(NULL, IDC_ARROW);
     wcex.hbrBackground    = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName    = NULL;
-    wcex.lpszClassName   = szWindowClass;
+    wcex.lpszClassName   = _T("MainWindow");
     wcex.hIconSm               = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_APPLICATION));   
 
     if (!RegisterClassEx(&wcex))
@@ -24,8 +24,8 @@ bool rasterizerApp::initMainWindow()
     }
 
     HWND hWnd = CreateWindow(
-        szWindowClass,
-        szTitle,
+        _T("MainWindow"),
+        _T("Rasterizer");,
         WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, CW_USEDEFAULT,
         500, 100,

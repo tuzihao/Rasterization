@@ -1,4 +1,4 @@
-#ifndef  RASTERIZERAPP_H
+#ifndef RASTERIZERAPP_H
 #define RASTERIZERAPP_H
 
 #include <windows.h>
@@ -8,14 +8,11 @@
 
 class rasterizerApp {
 public:
-    rasterizerApp(HINSTANCE hinstance) { hInst = hinstance};
+    rasterizerApp(HINSTANCE hinstance) { hInst = hinstance; };
     ~rasterizerApp();
     bool initMainWindow();
     int run();
     void render();
-
-    TCHAR szWindowClass[] = _T("MainWindow");
-    TCHAR szTitle[] = _T("Rasterizer");
 
     LRESULT CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM);
 
