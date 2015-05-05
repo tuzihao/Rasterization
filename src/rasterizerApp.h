@@ -10,14 +10,19 @@ class rasterizerApp {
 public:
     rasterizerApp(HINSTANCE hinstance) { hInst = hinstance; };
     ~rasterizerApp();
+    
+    HINSTANCE appInst()const;
+    HWND mainWnd() const;
+    
     bool initMainWindow();
     int run();
     void render();
 
-    LRESULT CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM);
+    LRESULT  MsgProc (HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 private:
     HINSTANCE hInst;
+    HWND hWnd;
     WNDCLASSEX wcex;
 };
 

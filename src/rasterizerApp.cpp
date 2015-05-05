@@ -2,15 +2,26 @@
 
 using namespace std;
 
+namespace
+{
+    rasterizerApp *myRasterizerApp = 0;
+}
+
+LRESULT CALLBACK
+MainWndProc (HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+    return myRasterizerApp -> MsgProc(hWnd, msg, wParam, lParam);
+}
+
 bool rasterizerApp::initMainWindow()
 {
     wcex.cbSize                 = sizeof(WNDCLASSEX);
     wcex.style                   = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc        = WndProc;
+    wcex.lpfnWndProc        = MainWndProc;
     wcex.cbClsExtra           = 0;
     wcex.cbWndExtra        = 0;
-    wcex.hInstance             = hInstance;
-    wcex.hIcon                    = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
+    wcex.hInstance             = hInst;
+    wcex.hIcon                    = LoadIcon(hInst, MAKEINTRESOURCE(IDI_APPLICATION));
     wcex.hCursor                = LoadCursor(NULL, IDC_ARROW);
     wcex.hbrBackground    = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName    = NULL;
@@ -23,7 +34,7 @@ bool rasterizerApp::initMainWindow()
         return false;
     }
 
-    HWND hWnd = CreateWindow(
+    hWnd = CreateWindow(
         _T("MainWindow"),
         _T("Rasterizer");,
         WS_OVERLAPPEDWINDOW,
@@ -31,7 +42,7 @@ bool rasterizerApp::initMainWindow()
         500, 100,
         NULL,
         NULL,
-        hInstance,
+        hInst,
         NULL
     );
 
@@ -40,18 +51,18 @@ bool rasterizerApp::initMainWindow()
         MessageBox(NULL, _T("Call to CreateWindow failed!"), _T("Win32 Guided Tour"), NULL);
         return false;
     }
-    ShowWindow(hWnd, nCmdShow);
+    ShowWindow(hWnd, SW_SHOW);
     UpdateWindow(hWnd);
 
     return true;
 }
 
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT  MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     PAINTSTRUCT ps;
     HDC hdc;
     TCHAR greeting[] = _T("Hello, World!");
-    switch (message)
+    switch (msg)
     {
     case WM_PAINT:
         hdc = BeginPaint(hWnd, &ps);
@@ -66,11 +77,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         PostQuitMessage(0);
         break;
     default:
-        return DefWindowProc(hWnd, message, wParam, lParam);
+        return DefWindowProc(hWnd, msg, wParam, lParam);
         break;
     }
 
-    return 0;
+    return ;
 }
 
 int rasterizerApp::run() 
