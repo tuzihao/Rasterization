@@ -77,11 +77,10 @@ LRESULT  MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
         PostQuitMessage(0);
         break;
     default:
-        return DefWindowProc(hWnd, msg, wParam, lParam);
         break;
     }
 
-    return ;
+    return  DefWindowProc(hWnd, msg, wParam, lParam);
 }
 
 int rasterizerApp::run() 
