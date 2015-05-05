@@ -36,7 +36,7 @@ bool rasterizerApp::initMainWindow()
 
     hWnd = CreateWindow(
         _T("MainWindow"),
-        _T("Rasterizer");,
+        _T("Rasterizer"),
         WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, CW_USEDEFAULT,
         500, 100,
@@ -98,5 +98,5 @@ int rasterizerApp::run()
 
 }
 
-void rasterizer::render()
+void rasterizerApp::render()
 {}
